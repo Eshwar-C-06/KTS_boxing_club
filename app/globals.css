@@ -1,0 +1,519 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts loaded via next/font in layout.tsx for optimal performance */
+
+:root {
+  --matte: #050505;
+  --carbon: #0A0A0A;
+  --blood: #D90429;
+  --gold: #D4AF37;
+  --fight: #F5F5F5;
+  --steel: #8A8A8A;
+  --warm: #2A1A0E;
+  --ring-light: #1A1008;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--matte);
+}
+
+body {
+  font-family: var(--font-poppins), 'Inter', system-ui, sans-serif;
+  background-color: var(--matte);
+  color: var(--fight);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--gold);
+  color: var(--matte);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--matte);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--carbon);
+  border-radius: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* =============================================
+   TYPOGRAPHY UTILITIES
+   ============================================= */
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(245, 245, 245, 0.1);
+  color: transparent;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 1px var(--gold);
+  color: transparent;
+}
+
+.text-stroke-accent {
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.78);
+  color: rgba(212, 175, 55, 0.12);
+}
+
+/* =============================================
+   GLASS & SURFACE UTILITIES
+   ============================================= */
+
+.glass-panel {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 1.5rem; /* rounded-2xl */
+}
+
+/* =============================================
+   GLOW UTILITIES
+   ============================================= */
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2), 0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+.gold-glow-subtle {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* =============================================
+   INTERACTION UTILITIES
+   ============================================= */
+
+.grayscale-hover {
+  filter: grayscale(100%);
+  transition: filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grayscale-hover:hover {
+  filter: grayscale(20%); /* Less harsh jump */
+}
+
+.image-hover-zoom {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-hover-zoom:hover {
+  transform: scale(1.03); /* Subtle zoom */
+}
+
+.card-lift {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-4px); /* Softer lift */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.underline-grow {
+  position: relative;
+}
+
+.underline-grow::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--gold);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.underline-grow:hover::after {
+  width: 100%;
+}
+
+/* =============================================
+   PREMIUM CTA
+   ============================================= */
+
+.premium-cta {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 9999px;
+  background:
+    linear-gradient(180deg, rgba(235, 203, 103, 0.98) 0%, rgba(212, 175, 55, 0.94) 100%);
+  color: var(--matte);
+  font-family: var(--font-poppins), 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 10px 24px rgba(0, 0, 0, 0.28);
+  transition:
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.premium-cta:hover {
+  transform: translateY(-1px);
+  border-color: rgba(212, 175, 55, 0.72);
+  background:
+    linear-gradient(180deg, rgba(244, 215, 123, 1) 0%, rgba(212, 175, 55, 0.98) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34), 0 14px 30px rgba(0, 0, 0, 0.34), 0 0 16px rgba(212, 175, 55, 0.12);
+}
+
+.premium-cta:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.85);
+  outline-offset: 4px;
+}
+
+/* =============================================
+   OVERLAY UTILITIES
+   ============================================= */
+
+.smoke-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.4) 0%,
+    rgba(5, 5, 5, 0.8) 50%,
+    rgba(5, 5, 5, 0.98) 100%
+  );
+}
+
+.subtle-warm-gradient-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(217, 4, 41, 0.05) 0%,
+    transparent 50%,
+    rgba(212, 175, 55, 0.03) 100%
+  );
+}
+
+/* Cinematic vignette - dark edges like a camera lens */
+.cinematic-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(5, 5, 5, 0.6) 80%,
+    rgba(5, 5, 5, 0.95) 100%
+  );
+}
+
+/* Scene transition - smoke fade between sections */
+.scene-transition-top {
+  background: linear-gradient(
+    to bottom,
+    var(--matte) 0%,
+    transparent 100%
+  );
+}
+
+.scene-transition-bottom {
+  background: linear-gradient(
+    to top,
+    var(--matte) 0%,
+    transparent 100%
+  );
+}
+
+/* Warm directional lighting - preserved subtle red/warm tones */
+.warm-light-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(217, 4, 41, 0.04) 0%,
+    rgba(42, 26, 14, 0.08) 30%,
+    transparent 70%
+  );
+}
+
+/* =============================================
+   FILM GRAIN — Ultra-subtle, CSS-only
+   ============================================= */
+
+.film-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.02; /* Extremely subtle */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* =============================================
+   PARTICLES
+   ============================================= */
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* =============================================
+   WHATSAPP FLOATING CTA
+   ============================================= */
+
+.whatsapp-cta {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 50;
+  width: 52px;
+  height: 52px;
+  background: rgba(10, 10, 10, 0.92);
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 24px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.whatsapp-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.52);
+  background: rgba(16, 16, 16, 0.96);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 14px 28px rgba(0, 0, 0, 0.32), 0 0 14px rgba(212, 175, 55, 0.08);
+}
+
+.whatsapp-cta svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--gold);
+}
+
+/* =============================================
+   MOBILE CTA BAR
+   ============================================= */
+
+.mobile-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 12px 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.mobile-cta-bar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 9999px; /* rounded-full */
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .film-grain {
+    display: none;
+  }
+
+  .image-hover-zoom:hover {
+    transform: none;
+  }
+
+  .card-lift:hover {
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =============================================
+   FONT BASE
+   ============================================= */
+
+@layer base {
+  .font-display {
+    font-family: var(--font-facon), 'Bebas Neue', 'Oswald', sans-serif;
+  }
+
+  .font-accent {
+    font-family: var(--font-brackley), 'Georgia', serif;
+  }
+
+  .font-body {
+    font-family: var(--font-poppins), 'Inter', sans-serif;
+  }
+}
+
+/* =============================================
+   3D Legendary Boxers Carousel (subtle)
+   Small, premium, editorial ring for the Hero
+   ============================================= */
+
+.carousel-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10; /* local stacking inside wrapper */
+}
+
+.carousel-3d-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  animation: carousel-rotate 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes carousel-rotate {
+  from {
+    transform: perspective(1200px) rotateX(-14deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1200px) rotateX(-14deg) rotateY(360deg);
+  }
+}
+
+/* local light spot to reduce vignette/darkness specifically around carousel */
+.carousel-light-spot {
+  background: radial-gradient(circle at 70% 50%, rgba(255,255,255,0.06), rgba(255,255,255,0.02) 30%, transparent 60%);
+  filter: blur(40px);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.carousel-3d-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.carousel-card {
+  width: 72%;
+  height: 82%;
+  border-radius: 1rem; /* rounded-2xl */
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.64), 0 0 18px rgba(212, 175, 55, 0.06);
+  background: linear-gradient(180deg, rgba(0,0,0,0.44), rgba(0,0,0,0.22));
+  isolation: isolate;
+}
+
+.carousel-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 28px rgba(212,175,55,0.03);
+}
+
+.carousel-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+}
+
+/* Slightly pull carousel inward at very large screens */
+@media (min-width: 1400px) {
+  .carousel-3d { transform: translateZ(0); }
+}
+
+/* ============================================
+   LEGEND CAROUSEL — 3D SAFEGUARDS
+   ============================================ */
+
+/* Ensure the Hero section never clips 3D children */
+.hero-section,
+.hero-container {
+  transform-style: preserve-3d;
+  overflow: visible !important;
+}
+
+/* Prevent any parent from flattening the carousel */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Force hardware acceleration for smooth transforms */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Remove any backdrop blur that might affect the carousel area */
+.no-backdrop-blur {
+  backdrop-filter: none !important;
+}
+
+
