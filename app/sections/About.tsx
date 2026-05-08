@@ -61,7 +61,7 @@ export default function About() {
             </div>
 
             <motion.blockquote initial={{ opacity: 0 }} animate={isVisible ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.8 }} className="relative pl-6 border-l-2 border-gold mt-12">
-              <p className="font-accent text-2xl md:text-3xl text-fight italic leading-relaxed">&ldquo;Discipline Beats Talent. Every Single Time.&rdquo;</p>
+              <p className="six-caps-regular text-3xl md:text-4xl lg:text-5xl text-fight italic leading-relaxed">&ldquo;Discipline Beats Talent. Every Single Time.&rdquo;</p>
               <cite className="text-steel text-sm mt-4 tracking-wider uppercase block not-italic">— KTS Philosophy</cite>
             </motion.blockquote>
           </motion.div>

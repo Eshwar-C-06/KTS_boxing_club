@@ -111,7 +111,7 @@ export default function Programs() {
         </div>
 
         <motion.div initial={{ opacity: 0 }} animate={isVisible ? { opacity: 1 } : {}} transition={{ duration: 0.8, delay: 0.8 }} className="text-center mt-12 md:mt-16">
-          <p className="font-accent text-xl md:text-2xl text-steel">&ldquo;No Excuses. Only Rounds.&rdquo;</p>
+          <p className="six-caps-regular text-3xl md:text-4xl lg:text-5xl text-steel">&ldquo;No Excuses. Only Rounds.&rdquo;</p>
         </motion.div>
       </div>
     </section>

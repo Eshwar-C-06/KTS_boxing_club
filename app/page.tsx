@@ -8,6 +8,7 @@ import MobileCTABar from "./components/MobileCTABar";
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
+import MarqueeStrip from "./sections/MarqueeStrip";
 import Programs from "./sections/Programs";
 import ClassTimings from "./sections/ClassTimings";
 import Coaches from "./sections/Coaches";
@@ -27,6 +28,7 @@ export default function Home() {
       <FilmGrain />
       <Navbar />
       <Hero />
+      <MarqueeStrip />
       <About />
       <Programs />
       <ClassTimings />

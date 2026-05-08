@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ChevronDown, ShieldCheck, Users, UserRoundCheck } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import LegendCarousel from "@/components/LegendCarousel";
 import { useReducedMotion } from "../hooks/useReducedMotion";
@@ -25,11 +25,6 @@ export default function Hero() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", prefersReduced ? "0%" : "15%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", prefersReduced ? "0%" : "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const trustItems = [
-    { icon: ShieldCheck, label: "Professional Trainers" },
-    { icon: Users, label: "Open For Men & Women" },
-    { icon: UserRoundCheck, label: "Beginner Friendly • Ages 5+" },
-  ];
 
   // LegendCarousel is handled by a dedicated component (see components/LegendCarousel)
 
@@ -193,24 +188,7 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-fight/75"
-            aria-label="Academy trust features"
-          >
-            {trustItems.map((item) => (
-              <div key={item.label} className="inline-flex items-center gap-2.5">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-gold/25 bg-matte/55 text-gold">
-                  <item.icon className="h-3.5 w-3.5" aria-hidden="true" />
-                </span>
-                <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-fight/72">
-                  {item.label}
-                </span>
-              </div>
-            ))}
-          </motion.div>
+          {/* Trust badges removed — marquee moved to its own section below the Hero */}
         </div>
       </motion.div>
 
@@ -236,6 +214,7 @@ export default function Hero() {
 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-matte to-transparent z-[4]" />
+      
     </section>
   );
 }
