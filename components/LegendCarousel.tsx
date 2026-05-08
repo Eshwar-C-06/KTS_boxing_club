@@ -11,12 +11,12 @@ interface Fighter {
 }
 
 const fighters: Fighter[] = [
-  { id: 1, name: "The Dragon", src: "/images/boxer_1.png" },
-  { id: 2, name: "Iron Mike", src: "/images/boxer_2.png" },
-  { id: 3, name: "Pac-Man", src: "/images/boxer_3.png" },
-  { id: 4, name: "Money", src: "/images/boxer_4.png" },
-  { id: 5, name: "Canelo", src: "/images/boxer_5.png" },
-  { id: 6, name: "The Greatest", src: "/images/boxer_6.png" },
+  { id: 1, name: "THE GREATEST", src: "/images/boxer_1.png" }, // Muhammad Ali
+  { id: 2, name: "THE DRAGON", src: "/images/boxer_2.png" }, // Bruce Lee
+  { id: 3, name: "IRON MIKE", src: "/images/boxer_3.png" }, // Mike Tyson
+  { id: 4, name: "PAC-MAN", src: "/images/boxer_4.png" }, // Manny Pacquiao
+  { id: 5, name: "MONEY", src: "/images/boxer_5.png" }, // Floyd Mayweather Jr.
+  { id: 6, name: "CANELO", src: "/images/boxer_6.png" }, // Canelo Álvarez
 ];
 
 export default function LegendCarousel() {
