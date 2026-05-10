@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Poppins } from "next/font/google";
+import { Poppins, Six_Caps } from "next/font/google";
 import { BUSINESS } from "./lib/business";
 import "./globals.css";
 
@@ -28,6 +28,13 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-poppins",
+  display: "swap",
+});
+
+const sixCaps = Six_Caps({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-sixcaps",
   display: "swap",
 });
 
@@ -72,12 +79,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${facon.variable} ${brackley.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${facon.variable} ${brackley.variable} ${poppins.variable} ${sixCaps.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet" />
+        {/* Six Caps now loaded via next/font for better performance */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

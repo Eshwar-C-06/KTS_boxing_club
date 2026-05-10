@@ -11,12 +11,12 @@ interface Fighter {
 }
 
 const fighters: Fighter[] = [
-  { id: 1, name: "THE GREATEST", src: "/images/boxer_1.png" }, // Muhammad Ali
-  { id: 2, name: "THE DRAGON", src: "/images/boxer_2.png" }, // Bruce Lee
-  { id: 3, name: "IRON MIKE", src: "/images/boxer_3.png" }, // Mike Tyson
-  { id: 4, name: "PAC-MAN", src: "/images/boxer_4.png" }, // Manny Pacquiao
-  { id: 5, name: "MONEY", src: "/images/boxer_5.png" }, // Floyd Mayweather Jr.
-  { id: 6, name: "CANELO", src: "/images/boxer_6.png" }, // Canelo Álvarez
+  { id: 1, name: "THE GREATEST", src: "/images/boxer_1.webp" }, // Muhammad Ali
+  { id: 2, name: "THE DRAGON", src: "/images/boxer_2.webp" }, // Bruce Lee
+  { id: 3, name: "IRON MIKE", src: "/images/boxer_3.webp" }, // Mike Tyson
+  { id: 4, name: "PAC-MAN", src: "/images/boxer_4.webp" }, // Manny Pacquiao
+  { id: 5, name: "MONEY", src: "/images/boxer_5.webp" }, // Floyd Mayweather Jr.
+  { id: 6, name: "CANELO", src: "/images/boxer_6.webp" }, // Canelo Álvarez
 ];
 
 export default function LegendCarousel() {
@@ -25,7 +25,7 @@ export default function LegendCarousel() {
   const angleStep = 360 / count;
   const translateZ = 320; // px — pushes cards outward in 3D space (increased for final polish)
   const rotateX = -6; // degrees — tilts the ring slightly downward for cinematic angle
-  const spinDuration = 16; // seconds — faster showroom spin
+  const spinDuration = 16; // seconds — showroom spin
 
   return (
     <div
@@ -68,6 +68,7 @@ export default function LegendCarousel() {
             transform: `translateZ(80px) rotateX(${rotateX}deg)`,
             animation: prefersReduced ? "none" : `legendSpin ${spinDuration}s linear infinite`,
             pointerEvents: "none",
+            willChange: "transform",
           }}
         >
             {fighters.map((fighter, index) => {
@@ -87,6 +88,7 @@ export default function LegendCarousel() {
                       transform: `rotateY(${angle}deg) translateZ(${translateZ}px)`,
                       transformStyle: "preserve-3d",
                       backfaceVisibility: "hidden",
+                      willChange: "transform",
                     }}
                   >
                 {/* 

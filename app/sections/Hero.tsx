@@ -19,11 +19,13 @@ export default function Hero() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
+  const bannerEnd = prefersReduced ? "0%" : isMobile ? "3%" : "8%";
+  const backgroundEnd = prefersReduced ? "0%" : isMobile ? "6%" : "15%";
+  const textEnd = prefersReduced ? "0%" : isMobile ? "12%" : "30%";
 
-  const bannerY = useTransform(scrollYProgress, [0, 1], ["0%", prefersReduced ? "0%" : "8%"]);
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", prefersReduced ? "0%" : "15%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", prefersReduced ? "0%" : "30%"]);
+  const bannerY = useTransform(scrollYProgress, [0, 1], ["0%", bannerEnd]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", backgroundEnd]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", textEnd]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   // LegendCarousel is handled by a dedicated component (see components/LegendCarousel)
@@ -37,13 +39,13 @@ export default function Hero() {
     >
       {/* ===== BACKGROUND LAYERS ===== */}
       <motion.div
-        style={{ y: backgroundY }}
+        style={{ y: backgroundY, willChange: "transform" }}
         className="absolute inset-0 z-0"
       >
         {/* Atmospheric base using hero_img (blurred + desaturated) */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero_img.png"
+            src="/images/hero_img.webp"
             alt=""
             fill
             priority
@@ -61,14 +63,14 @@ export default function Hero() {
         <div className="absolute inset-0 subtle-warm-gradient-overlay opacity-20" />
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: prefersReduced ? 0 : isMobile ? 12 : 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="font-display hero-title text-fight mb-4 sm:mb-5"
       >
         <div className="relative w-[62%] md:w-[56%] lg:w-[50%] max-w-[1100px] pr-4 md:pr-8">
           <Image
-            src="/images/hero_img.png"
+            src="/images/hero_img.webp"
             alt="Legendary fighters banner"
             fill
             priority
@@ -91,7 +93,7 @@ export default function Hero() {
 
       {/* ===== GIANT TYPOGRAPHY BEHIND BOXER ===== */}
       <motion.div
-        style={{ y: textY }}
+        style={{ y: textY, willChange: "transform" }}
         className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none select-none"
       >
         <div className="relative w-full max-w-7xl mx-auto px-6">
@@ -119,14 +121,14 @@ export default function Hero() {
       {/* Old single-boxer image removed — hero_img is primary backdrop now */}
 
       {/* ===== HERO CONTENT ===== */}
-      <motion.div
-        style={{ opacity }}
+          <motion.div
+        style={{ opacity, willChange: "opacity" }}
         className="relative z-[20] hero-container w-full max-w-7xl mx-auto px-6 lg:px-8 pt-20 md:pt-32 pb-14 md:pb-20"
       >
         <div className="max-w-3xl">
           {/* Subtitle */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: prefersReduced ? 0 : isMobile ? 8 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center gap-4 mb-8"
@@ -139,7 +141,7 @@ export default function Hero() {
 
           {/* Main Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: prefersReduced ? 0 : isMobile ? 12 : 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="font-display text-[2.1rem] sm:text-[2.4rem] md:text-[4rem] lg:text-[5.2rem] text-fight leading-[1.0] mb-4 sm:mb-5"
@@ -153,7 +155,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: prefersReduced ? 0 : isMobile ? 8 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-steel text-base sm:text-lg md:text-lg max-w-xl mb-8 sm:mb-9 leading-relaxed"
@@ -164,7 +166,7 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: prefersReduced ? 0 : isMobile ? 8 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center"
