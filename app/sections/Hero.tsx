@@ -59,12 +59,12 @@ export default function Hero() {
         {/* Softer vignette & reduced warm overlay to preserve image visibility */}
         <div className="absolute inset-0 cinematic-vignette opacity-40" />
         <div className="absolute inset-0 subtle-warm-gradient-overlay opacity-20" />
+      </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="font-display hero-title text-fight mb-4 sm:mb-5"
-      >
       >
         <div className="relative w-[62%] md:w-[56%] lg:w-[50%] max-w-[1100px] pr-4 md:pr-8">
           <Image
