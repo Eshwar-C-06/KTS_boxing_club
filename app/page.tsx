@@ -23,7 +23,7 @@ export default function Home() {
   useSmoothScroll();
 
   return (
-    <main className="relative bg-matte min-h-screen" role="main">
+    <main className="relative bg-matte min-h-screen safe-viewport" role="main">
       <ParticleBackground />
       <FilmGrain />
       <Navbar />

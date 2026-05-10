@@ -70,7 +70,7 @@ export default function About() {
             {images.map((img, index) => (
               <motion.div key={index} initial={{ opacity: 0, y: 20 }} animate={isVisible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.5 + index * 0.15, ease: [0.16, 1, 0.3, 1] }} className={`relative overflow-hidden group rounded-xl ${index === 0 ? "col-span-2 aspect-video" : "aspect-square"}`}>
                 <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-10" />
-                <Image src={img.src} alt={img.alt} fill sizes={index === 0 ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"} className="object-cover image-hover-zoom" style={{ filter: "brightness(0.65) contrast(1.15) saturate(0.85)" }} loading="lazy" />
+                <Image src={img.src} alt={img.alt} fill sizes={index === 0 ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"} className="object-cover image-hover-zoom filter-about-img" loading="lazy" />
               </motion.div>
             ))}
           </motion.div>

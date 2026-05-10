@@ -80,6 +80,11 @@ export default function MarqueeStrip() {
           to { transform: translateX(-50%); }
         }
 
+        /* Disable marquee motion when user prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track { animation: none !important; }
+        }
+
         @media (min-width: 768px) {
           .marquee-item { font-size: 16px; }
         }

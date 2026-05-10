@@ -79,8 +79,7 @@ export default function Coaches() {
                   alt={`Coach ${coach.name}`}
                   fill
                   sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover grayscale-hover"
-                  style={{ filter: "brightness(0.75) contrast(1.1) saturate(0.9)" }}
+                  className="object-cover grayscale-hover filter-coaches-img"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] z-10 pointer-events-none" />

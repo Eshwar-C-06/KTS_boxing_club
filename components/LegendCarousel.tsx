@@ -30,7 +30,8 @@ export default function LegendCarousel() {
   return (
     <div
       className="hidden lg:block absolute z-10"
-      style={{ width: 380, height: 460, right: "10%", top: "46%", transform: "translateY(-50%)" }}
+      aria-hidden="true"
+      style={{ width: 380, height: 460, right: "6%", top: "50%", transform: "translateY(-50%)" }}
     >
       {/* 
         PERSPECTIVE CONTAINER
@@ -65,7 +66,8 @@ export default function LegendCarousel() {
           style={{
             transformStyle: "preserve-3d",
             transform: `translateZ(80px) rotateX(${rotateX}deg)`,
-            animation: `legendSpin ${spinDuration}s linear infinite`,
+            animation: prefersReduced ? "none" : `legendSpin ${spinDuration}s linear infinite`,
+            pointerEvents: "none",
           }}
         >
             {fighters.map((fighter, index) => {

@@ -59,12 +59,12 @@ export default function Hero() {
         {/* Softer vignette & reduced warm overlay to preserve image visibility */}
         <div className="absolute inset-0 cinematic-vignette opacity-40" />
         <div className="absolute inset-0 subtle-warm-gradient-overlay opacity-20" />
-      </motion.div>
-
-      {/* ===== FIGHTERS BANNER — LAYERED CINEMATIC BACKDROP ===== */}
       <motion.div
-        style={{ y: bannerY }}
-        className="absolute inset-y-0 right-0 z-[4] flex items-center justify-end pointer-events-none"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="font-display hero-title text-fight mb-4 sm:mb-5"
+      >
       >
         <div className="relative w-[62%] md:w-[56%] lg:w-[50%] max-w-[1100px] pr-4 md:pr-8">
           <Image
@@ -121,7 +121,7 @@ export default function Hero() {
       {/* ===== HERO CONTENT ===== */}
       <motion.div
         style={{ opacity }}
-        className="relative z-[20] hero-container w-full max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20"
+        className="relative z-[20] hero-container w-full max-w-7xl mx-auto px-6 lg:px-8 pt-20 md:pt-32 pb-14 md:pb-20"
       >
         <div className="max-w-3xl">
           {/* Subtitle */}
@@ -167,22 +167,22 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center"
           >
             <a
               href={trialUrl ?? "#contact"}
               target={trialUrl ? "_blank" : undefined}
               rel={trialUrl ? "noopener noreferrer" : undefined}
               id="hero-cta-primary"
-              className="premium-cta group px-8 py-4 text-[12px] sm:text-[13px]"
+              className="premium-cta group px-8 py-4 text-[12px] sm:text-[13px] w-full sm:w-auto flex items-center justify-center"
             >
               Join The Elite
-              <ArrowRight className="w-4 h-4 transition-transform duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 ml-3 transition-transform duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1" />
             </a>
             <a
               href="#programs"
               id="hero-cta-secondary"
-              className="border border-white/20 hover:border-gold/50 text-fight hover:text-gold px-8 py-4 text-sm font-bold tracking-wider uppercase rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-sm bg-white/5 hover:bg-gold/10"
+              className="border border-white/20 hover:border-gold/50 text-fight hover:text-gold px-8 py-4 text-sm font-bold tracking-wider uppercase rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-sm bg-white/5 hover:bg-gold/10 w-full sm:w-auto flex items-center justify-center"
             >
               View Programs
             </a>

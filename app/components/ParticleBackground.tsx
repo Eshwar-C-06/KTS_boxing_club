@@ -106,8 +106,8 @@ export default function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-10"
-      style={{ opacity: 0.4 }}
+      className="fixed inset-0 pointer-events-none"
+      style={{ opacity: 0.08, zIndex: 2 }}
       aria-hidden="true"
     />
   );

@@ -78,7 +78,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[4.5rem] md:h-[5.25rem]">
             <a href="#home" className="flex items-center gap-3.5 group" aria-label="KTS Boxing Academy Home">
-              <div className="relative w-10 h-10 md:w-12 md:h-12">
+              <div className="relative w-9 h-9 md:w-12 md:h-12">
                 <Image
                   src="/images/kts_logo.png"
                   alt="KTS Boxing Academy Logo"
@@ -133,7 +133,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-fight/80 p-2 hover:text-gold transition-colors duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="lg:hidden text-fight/80 p-3 rounded-full hover:text-gold transition-colors duration-[650ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
               aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
